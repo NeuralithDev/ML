@@ -2,15 +2,34 @@
 
 ## Dataset Inventory
 
-| Dataset | Size | Granularity | Role |
+| Dataset | Size | Granularity | Current Role |
 |---|---:|---|---|
-| Financial | 1.3 MB | TBD | Behavioral/financial profile |
-| IBM | 2.2 GB transactions | Transaction | TBD |
-| PaySim | 471 MB | Transaction | Fraud benchmark |
+| Financial | 1.3 MB | Synthetic merged financial records | Financial/user behavior |
+| IBM | 2.2 GB transactions | Transaction | Transactional behavior + fraud |
+| PaySim | 471 MB | Transaction | Fraud detection |
 
-## Important Engineering Decisions
+## Data Quality
 
-### Raw data
+### Financial
+- Missing values: 0
+- Synthetic merged dataset
+
+### PaySim
+- Transaction-level data
+- Target: `isFraud`
+- Existing rule-based indicator: `isFlaggedFraud`
+
+### IBM
+- Transaction-level data
+- Contains user/card information
+- Contains fraud-related information
+
+## Ingestion Strategy
+
+Small datasets can be loaded directly.
+
+Large transaction datasets will be processed incrementally rather than loaded entirely into memory.
+
 Raw datasets are treated as immutable source data.
 
 ### Large datasets
@@ -20,3 +39,11 @@ They will be processed using chunked/streaming ingestion.
 
 ### Dataset integration
 The datasets will not be blindly concatenated because they originate from different schemas/entities/data-generating processes.
+
+The Financial dataset is a synthetically merged dataset.
+
+Therefore:
+- It can be used for experimentation and feature engineering.
+- Relationships between variables should not automatically be interpreted as real-world relationships.
+- We need to inspect its construction and schema before deciding which features are suitable for modeling.
+- We should avoid making unsupported claims about real-world financial behavior based solely on this dataset.
