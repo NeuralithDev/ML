@@ -1,3 +1,100 @@
+## 🏗️ System Architecture
+
+FinSense is designed as an AI-powered Personal Finance Intelligence
+system that transforms heterogeneous financial data into personalized
+financial insights, forecasts, recommendations, and AI-assisted
+decision making.
+
+```text
+                              ┌──────────────────────────┐
+                              │         FinSense         │
+                              │   AI Personal Finance    │
+                              │      Intelligence        │
+                              └────────────┬─────────────┘
+                                           │
+                    ┌──────────────────────┼──────────────────────┐
+                    │                      │                      │
+                    ▼                      ▼                      ▼
+          ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+          │    Financial    │    │   Behavioral    │    │   Transaction   │
+          │     Profile     │    │  Intelligence  │    │  Intelligence   │
+          ├─────────────────┤    ├─────────────────┤    ├─────────────────┤
+          │ • Income        │    │ • Spending      │    │ • Transactions  │
+          │ • Expenses      │    │   patterns      │    │ • Amounts       │
+          │ • Savings       │    │ • Frequency     │    │ • Types         │
+          │ • Debt          │    │ • Categories    │    │ • Balance flow  │
+          │ • EMI           │    │ • Merchants     │    │ • Time patterns │
+          │ • Credit Score  │    │ • Trends        │    │ • Activity      │
+          └────────┬────────┘    └────────┬────────┘    └────────┬────────┘
+                   │                      │                      │
+                   └──────────────────────┼──────────────────────┘
+                                          ▼
+                              ┌──────────────────────────┐
+                              │     Financial State      │
+                              │                          │
+                              │ Unified representation  │
+                              │ of the user's financial  │
+                              │ condition and behavior   │
+                              └────────────┬─────────────┘
+                                           │
+                         ┌─────────────────┴─────────────────┐
+                         │                                   │
+                         ▼                                   ▼
+              ┌──────────────────────┐             ┌──────────────────────┐
+              │     Forecasting      │             │   Recommendations    │
+              ├──────────────────────┤             ├──────────────────────┤
+              │ • Spending forecast │             │ • Savings actions    │
+              │ • Cash-flow forecast│             │ • Budget suggestions │
+              │ • Financial trends  │             │ • Debt strategies    │
+              │ • Future scenarios  │             │ • Personalized goals │
+              └──────────┬───────────┘             └──────────┬───────────┘
+                         │                                    │
+                         └────────────────┬───────────────────┘
+                                          ▼
+                              ┌──────────────────────────┐
+                              │      AI Assistant        │
+                              ├──────────────────────────┤
+                              │ • Financial Q&A          │
+                              │ • Explain insights       │
+                              │ • Explain predictions    │
+                              │ • Scenario reasoning     │
+                              │ • Personalized guidance  │
+                              └────────────┬─────────────┘
+                                           │
+                                           ▼
+                              ┌──────────────────────────┐
+                              │     FinSense User        │
+                              │                          │
+                              │ Understand → Predict →   │
+                              │ Decide → Act             │
+                              └──────────────────────────┘
+
+
+Raw Financial Data
+        ↓
+Data Validation & Cleaning
+        ↓
+Feature Engineering
+        ↓
+┌───────────────────────────────────────────┐
+│                                           │
+│  Financial Profile                        │
+│  Behavioral Intelligence                  │
+│  Transaction Intelligence                 │
+│                                           │
+└───────────────────┬───────────────────────┘
+                    ↓
+             Financial State
+                    ↓
+       ┌────────────┴────────────┐
+       ↓                         ↓
+  Forecasting              Recommendations
+       │                         │
+       └────────────┬────────────┘
+                    ↓
+              AI Assistant
+                    ↓
+           Personalized Action
 # FinSense — Data Notes
 
 ## Dataset Inventory
